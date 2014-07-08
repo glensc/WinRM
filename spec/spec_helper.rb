@@ -1,4 +1,3 @@
-$: << File.dirname(__FILE__) + '/../../lib/'
 require 'rubygems'
 require 'bundler/setup'
 require 'winrm'
@@ -7,7 +6,7 @@ require 'json'
 module ConnectionHelper
   # To run this test put a file called 'creds.json' in this directory with the following format:
   #   {"user":"myuser","pass":"mypass","endpoint":"http://mysys.com/wsman","realm":"MY.REALM"}
-  WINRM_CONFIG = File.expand_path("#{File.dirname(__FILE__)}/../config.yml")
+  WINRM_CONFIG = File.expand_path("#{File.dirname(__FILE__)}/config.yml")
 
   def winrm_connection
     config = symbolize_keys(YAML.load(File.read(WINRM_CONFIG)))
